@@ -21,8 +21,8 @@ apt-get upgrade -y
 apt-get install -y apache2
 apt-get install -y php libapache2-mod-php
 apt-get install -y php-intl php-zip php-mbstring php-mysql
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password ${mysqlpassword}'
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password ${mysqlpassword}'
+sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password ${mysqlpassword}"
+sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password ${mysqlpassword}"
 apt-get install -y mysql-server
 mysql -uroot -p$mysqlpassword -e "source $DIR/mysqlsetup.sql"
 apt-get install -y composer
